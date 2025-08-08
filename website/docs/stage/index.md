@@ -1,0 +1,38 @@
+---
+title: stage
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - stage
+  - snowflake
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage snowflake resources using SQL
+custom_edit_url: null
+image: /img/stackql-snowflake-provider-featured-image.png
+---
+
+stage service documentation.
+
+:::info Service Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total resources:&nbsp;<b>3</b></span><br />
+</div>
+</div>
+
+:::
+
+## Resources
+<div class="row">
+<div class="providerDocColumn">
+<a href="/stage/files/">files</a><br />
+<a href="/stage/presigned_url/">presigned_url</a>
+</div>
+<div class="providerDocColumn">
+<a href="/stage/stages/">stages</a>
+</div>
+</div>

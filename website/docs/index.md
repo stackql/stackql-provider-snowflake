@@ -1,0 +1,119 @@
+---
+title: snowflake
+hide_title: false
+hide_table_of_contents: false
+keywords:
+  - snowflake
+  - stackql
+  - infrastructure-as-code
+  - configuration-as-data
+  - cloud inventory
+description: Query, deploy and manage Snowflake resources using SQL
+custom_edit_url: null
+image: /img/stackql-snowflake-provider-featured-image.png
+id: snowflake-doc
+---
+
+import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
+
+Snowflake for managing data warehousing, analytics, and secure data sharing with scalable cloud-native architecture and pay-as-you-go pricing.
+
+
+:::info Provider Summary
+
+<div class="row">
+<div class="providerDocColumn">
+<span>total services:&nbsp;<b>36</b></span><br />
+<span>total resources:&nbsp;<b>99</b></span><br />
+</div>
+</div>
+
+:::
+
+See also:   
+[[` SHOW `]](https://stackql.io/docs/language-spec/show) [[` DESCRIBE `]](https://stackql.io/docs/language-spec/describe)  [[` REGISTRY `]](https://stackql.io/docs/language-spec/registry)
+* * * 
+
+## Installation
+
+To pull the latest version of the `snowflake` provider, run the following command:  
+
+```bash
+REGISTRY PULL snowflake;
+```
+> To view previous provider versions or to pull a specific provider version, see [here](https://stackql.io/docs/language-spec/registry).  
+
+## Authentication
+
+The following system environment variables are used for authentication by default:  
+
+- <CopyableCode code="SNOWFLAKE_PAT" /> - Snowflake Programmatic Access Token (PAT) (see <a href="https://docs.snowflake.com/developer-guide/snowflake-rest-api/authentication#using-a-programmatic-access-token-pat">Using a programmatic access token (PAT)</a>)
+
+These variables are sourced at runtime (from the local machine or as CI variables/secrets).  
+
+<details>
+
+<summary>Using different environment variables</summary>
+
+To use different environment variables (instead of the defaults), use the `--auth` flag of the `stackql` program.  For example:  
+
+```bash
+
+AUTH='{ "snowflake": { "type": "bearer",  "credentialsenvvar": "YOUR_SNOWFLAKE_PAT_VAR" }}'
+stackql shell --auth="${AUTH}"
+
+```
+or using PowerShell:  
+
+```powershell
+
+$Auth = "{ 'snowflake': { 'type': 'bearer',  'credentialsenvvar': 'YOUR_SNOWFLAKE_PAT_VAR' }}"
+stackql.exe shell --auth=$Auth
+
+```
+</details>
+
+
+## Services
+<div class="row">
+<div class="providerDocColumn">
+<a href="/account/">account</a><br />
+<a href="/alert/">alert</a><br />
+<a href="/api_integration/">api_integration</a><br />
+<a href="/catalog_integration/">catalog_integration</a><br />
+<a href="/compute_pool/">compute_pool</a><br />
+<a href="/cortex_analyst/">cortex_analyst</a><br />
+<a href="/cortex_inference/">cortex_inference</a><br />
+<a href="/cortex_search_service/">cortex_search_service</a><br />
+<a href="/database/">database</a><br />
+<a href="/database_role/">database_role</a><br />
+<a href="/dynamic_table/">dynamic_table</a><br />
+<a href="/event_table/">event_table</a><br />
+<a href="/external_volume/">external_volume</a><br />
+<a href="/function/">function</a><br />
+<a href="/grant/">grant</a><br />
+<a href="/iceberg_table/">iceberg_table</a><br />
+<a href="/image_repository/">image_repository</a><br />
+<a href="/managed_account/">managed_account</a><br />
+</div>
+<div class="providerDocColumn">
+<a href="/network_policy/">network_policy</a><br />
+<a href="/notebook/">notebook</a><br />
+<a href="/notification_integration/">notification_integration</a><br />
+<a href="/pipe/">pipe</a><br />
+<a href="/procedure/">procedure</a><br />
+<a href="/result/">result</a><br />
+<a href="/role/">role</a><br />
+<a href="/schema/">schema</a><br />
+<a href="/service/">service</a><br />
+<a href="/sqlapi/">sqlapi</a><br />
+<a href="/stage/">stage</a><br />
+<a href="/streams/">streams</a><br />
+<a href="/table/">table</a><br />
+<a href="/task/">task</a><br />
+<a href="/user/">user</a><br />
+<a href="/user_defined_function/">user_defined_function</a><br />
+<a href="/view/">view</a><br />
+<a href="/warehouse/">warehouse</a><br />
+</div>
+</div>

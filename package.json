@@ -1,0 +1,16 @@
+{
+  "name": "stackql-provider-snowflake",
+  "version": "0.1.0",
+  "description": "StackQL Provider for Snowflake",
+  "type": "module",
+  "scripts": {
+    "generate-docs": "./bin/generate-docs.sh",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@stackql/provider-utils": "^0.1.1"
+  },
+  "engines": {
+    "node": ">=14.16.0"
+  }
+}
