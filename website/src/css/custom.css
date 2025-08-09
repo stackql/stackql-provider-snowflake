@@ -243,3 +243,16 @@ img[class="vhsImage"] {
 div:has(> .vhsImage) {
   margin: 40px 0;
 }
+
+/* provider doc column */
+.providerDocColumn {
+	width: calc(50% - var(--ifm-spacing-horizontal));
+	float: left;
+	padding-left: var(--ifm-list-margin);
+}
+
+@media screen and (max-width: 600px) {
+	.providerDocColumn {
+	  width: 100%;
+	}
+  }
