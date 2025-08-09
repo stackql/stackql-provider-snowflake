@@ -28,9 +28,9 @@ jobs:
         test_query: |
           SELECT repo, count(*) as has_starred
           FROM github.activity.repo_stargazers
-          WHERE owner = 'stackql' and repo in ('stackql', 'stackql-deploy') and login = '${{ env.username }}'
+          WHERE owner = 'stackql' and repo in ('stackql', 'stackql-provider-snowflake') and login = '${{ env.username }}'
           GROUP BY repo;
-        expected_results_str: '[{"has_starred":"1","repo":"stackql"},{"has_starred":"1","repo":"stackql-deploy"}]'
+        expected_results_str: '[{"has_starred":"1","repo":"stackql"},{"has_starred":"1","repo":"stackql-provider-snowflake"}]'
       continue-on-error: true
 
     - name: Check if starred
@@ -39,7 +39,7 @@ jobs:
         if [ "${{ steps.check-star.outcome }}" = "success" ]; then
           echo "::notice::Thanks for your support!"
         else
-          echo "::error::It seems you haven't starred the StackQL repositories. Please star the following repos before proceeding: https://github.com/stackql/stackql-deploy (this repo) and https://github.com/stackql/stackql (our core repo)"
+          echo "::error::It seems you haven't starred the StackQL repositories. Please star the following repos before proceeding: https://github.com/stackql/stackql-provider-snowflake (this repo) and https://github.com/stackql/stackql (our core repo)"
           exit 1
         fi
         
