@@ -2,8 +2,6 @@
 
 Please include a summary of the changes and the related issue(s). Please also include relevant motivation and context.
 
-Fixes #
-
 ## Checklist
 
 Please make sure that the following criteria are met:
