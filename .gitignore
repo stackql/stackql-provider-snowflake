@@ -43,7 +43,11 @@ output/
 
 # stackql
 .stackql/
-stackql*.sh
+stackql
+stackql-zip
+stackql-aws-cloud-shell.sh
+stackql-azure-cloud-shell.sh
+stackql-google-cloud-shell.sh
 .env
 nohup.out
 
