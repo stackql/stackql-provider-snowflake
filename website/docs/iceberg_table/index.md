@@ -16,13 +16,9 @@ image: /img/stackql-snowflake-provider-featured-image.png
 
 iceberg_table service documentation.
 
-:::info Service Summary
+:::info[Service Summary]
 
-<div class="row">
-<div class="providerDocColumn">
-<span>total resources:&nbsp;<b>1</b></span><br />
-</div>
-</div>
+total resources: __1__  
 
 :::
 
