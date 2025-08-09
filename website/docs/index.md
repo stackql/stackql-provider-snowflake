@@ -19,14 +19,10 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 Snowflake for managing data warehousing, analytics, and secure data sharing with scalable cloud-native architecture and pay-as-you-go pricing.
 
 
-:::info Provider Summary
+:::info[Provider Summary] 
 
-<div class="row">
-<div class="providerDocColumn">
-<span>total services:&nbsp;<b>36</b></span><br />
-<span>total resources:&nbsp;<b>99</b></span><br />
-</div>
-</div>
+total services: __36__  
+total resources: __99__  
 
 :::
 

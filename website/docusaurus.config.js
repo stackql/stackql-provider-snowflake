@@ -6,12 +6,16 @@
 
 import {themes as prismThemes} from 'prism-react-renderer';
 
+// Provider configuration - change these for different providers
+const providerName = "snowflake";
+const providerTitle = "Snowflake";
+
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'StackQL Snowflake Provider',
-  tagline: 'Query and Provision Snowflake Resources using StackQL',
+  title: `StackQL ${providerTitle} Provider`,
+  tagline: `Query and Provision ${providerTitle} Resources using StackQL`,
   favicon: 'img/favicon.ico',
   staticDirectories: ['static'],
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -20,7 +24,7 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: 'https://snowflake.registry.stackql.io',
+  url: `https://${providerName}.registry.stackql.io`,
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
@@ -28,7 +32,7 @@ const config = {
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'stackql', // Usually your GitHub org/user name.
-  projectName: 'stackql-provider-snowflake', // Usually your repo name.
+  projectName: `stackql-provider-${providerName}`, // Usually your repo name.
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -50,24 +54,9 @@ const config = {
           sidebarPath: './sidebars.js',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: 'https://github.com/stackql/stackql-deploy/tree/main/website/',
-          // routeBasePath: '/', // Set the docs to be the root of the site
+          // editUrl: 'https://github.com/stackql/stackql-deploy/tree/main/website/',
+          routeBasePath: '/', // Set the docs to be the root of the site
         },
-        // blog: {
-        //   showReadingTime: true,
-        //   feedOptions: {
-        //     type: ['rss', 'atom'],
-        //     xslt: true,
-        //   },
-        //   // Please change this to your repo.
-        //   // Remove this to remove the "edit this page" links.
-        //   editUrl:
-        //     'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        //   // Useful options to enforce blogging best practices
-        //   onInlineTags: 'warn',
-        //   onInlineAuthors: 'warn',
-        //   onUntruncatedBlogPosts: 'warn',
-        // },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -81,26 +70,72 @@ const config = {
       // Replace with your project's social card
       image: 'img/stackql-cover.png',
       navbar: {
-        title: 'StackQL Snowflake Provider',
         logo: {
-          alt: 'StackQL Deploy',
+          alt: 'StackQL Registry',
           href: '/',
-          src: 'img/stackql-logo.svg',
-          srcDark: 'img/stackql-logo-white.svg',
+          src: 'img/stackql-registry-logo.svg',
+          srcDark: 'img/stackql-registry-logo-white.svg',
         },
         items: [
-          // {
-          //   type: 'docSidebar',
-          //   sidebarId: 'tutorialSidebar',
-          //   position: 'left',
-          //   label: 'Tutorial',
-          // },
-          // {to: '/blog', label: 'Blog', position: 'left'},
-          // {
-          //   href: 'https://github.com/facebook/docusaurus',
-          //   label: 'GitHub',
-          //   position: 'right',
-          // },
+          {
+            to: '/stackqldocs',
+            position: 'left',
+            label: 'StackQL Docs',
+          },
+          {
+            to: '/deploy',
+            position: 'left',
+            label: 'stackql-deploy',
+          },
+          {
+            to: '/registry',
+            type: 'dropdown',
+            label: 'StackQL Providers',
+            position: 'left',
+            items: [
+              {
+                label: 'AWS',
+                to: '/registry/aws',
+              },
+              {
+                label: 'Azure',
+                to: '/registry/azure',
+              },
+              {
+                label: 'Google',
+                to: '/registry/google',
+              },
+              {
+                label: 'GitHub',
+                to: '/registry/github',
+              },
+              {
+                label: 'Kubernetes',
+                to: '/registry/k8s',
+              },
+              {
+                label: 'Okta',
+                to: '/registry/okta',
+              },
+              {
+                label: 'DigitalOcean',
+                to: '/registry/digitalocean',
+              },
+              {
+                label: 'Linode',
+                to: '/registry/linode',
+              },
+              {
+                label: '... More',
+                to: '/registry',
+              },                                                                                                
+            ]                      
+          },
+          {
+            to: '/downloads',
+            position: 'left',
+            label: 'Downloads',
+          },
           {
             href: 'https://github.com/stackql/stackql',
             position: 'right',
@@ -114,8 +149,8 @@ const config = {
         logo: {
           alt: 'StackQL',
           href: 'https://stackql.io/',
-          src: 'img/stackql-logo.svg',
-          srcDark: 'img/stackql-logo-white.svg',
+          src: 'img/stackql-registry-logo.svg',
+          srcDark: 'img/stackql-registry-logo-white.svg',
         },
         links: [
           {
