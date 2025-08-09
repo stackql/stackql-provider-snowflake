@@ -220,7 +220,7 @@ The following methods are available for this resource:
     <td><CopyableCode code="select" /></td>
     <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
     <td><a href="#parameter-recursive"><code>recursive</code></a></td>
-    <td>This operation returns a list of the dependent tasks of the task with identifier name.</td>
+    <td>This operation returns a list of the dependent tasks of the task with identifier &#123;name&#125;.</td>
 </tr>
 </tbody>
 </table>
@@ -256,7 +256,7 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 <tr id="parameter-schema_name">
     <td><CopyableCode code="schema_name" /></td>
     <td><code>string</code></td>
-    <td>Identifier (i.e. name) for the schema to which the resource belongs. You can use the <code>/api/v2/databases/database/schemas</code> GET request to get a list of available schemas for the specified database.</td>
+    <td>Identifier (i.e. name) for the schema to which the resource belongs. You can use the <code>/api/v2/databases/&#123;database&#125;/schemas</code> GET request to get a list of available schemas for the specified database.</td>
 </tr>
 <tr id="parameter-recursive">
     <td><CopyableCode code="recursive" /></td>
@@ -276,7 +276,7 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
 >
 <TabItem value="fetch_task_dependents">
 
-This operation returns a list of the dependent tasks of the task with identifier `{name}`.
+This operation returns a list of the dependent tasks of the task with identifier &#123;name&#125;.
 
 ```sql
 SELECT

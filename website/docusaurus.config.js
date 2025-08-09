@@ -72,7 +72,7 @@ const config = {
       navbar: {
         logo: {
           alt: 'StackQL Registry',
-          href: '/',
+          href: 'https://stackql.io/',
           src: 'img/stackql-registry-logo.svg',
           srcDark: 'img/stackql-registry-logo-white.svg',
         },

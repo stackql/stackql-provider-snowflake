@@ -117,7 +117,7 @@ npm i
 npm run generate-docs -- \
   --provider-name snowflake \
   --provider-dir ./provider-dev/src/snowflake/v00.00.00000 \
-  --output-dir ./website/docs \
+  --output-dir ./website \
   --provider-data-dir ./provider-dev/docgen/provider-data
 ```  
 
