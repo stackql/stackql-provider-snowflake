@@ -154,28 +154,23 @@ const config = {
         },
         links: [
           {
-            title: 'Docs',
+            title: 'StackQL',
             items: [
               {
-                label: 'Tutorial',
-                to: '/docs/intro',
-              },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
-              {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'Home',
+                to: '/home',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
+                label: 'Features',
+                to: '/features',
               },
               {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
+                label: 'Downloads',
+                to: '/downloads',
+              },
+              {
+                label: 'Contact us',
+                href: '/contact-us',
               },
             ],
           },
@@ -183,12 +178,16 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                label: 'StackQL Docs',
+                to: '/stackqldocs',
               },
               {
-                label: 'GitHub',
-                href: 'https://github.com/facebook/docusaurus',
+                label: 'Providers',
+                to: '/registry',
+              },
+              {
+                label: 'Blog',
+                to: '/blog',
               },
             ],
           },
