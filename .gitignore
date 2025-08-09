@@ -43,7 +43,7 @@ output/
 
 # stackql
 .stackql/
-stackql*
+stackql*.sh
 .env
 nohup.out
 
