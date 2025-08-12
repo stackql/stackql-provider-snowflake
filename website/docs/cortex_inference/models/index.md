@@ -39,8 +39,6 @@ The following fields are returned by `SELECT` queries:
 >
 <TabItem value="get_models">
 
-OK
-
 <table>
 <thead>
     <tr>

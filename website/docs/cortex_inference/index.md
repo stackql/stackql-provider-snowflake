@@ -25,7 +25,7 @@ total resources: __2__
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/cortex_inference/inference/">inference</a>
+<a href="/cortex_inference/completions/">completions</a>
 </div>
 <div class="providerDocColumn">
 <a href="/cortex_inference/models/">models</a>

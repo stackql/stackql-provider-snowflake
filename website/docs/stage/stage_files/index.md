@@ -1,9 +1,9 @@
 --- 
-title: files
+title: stage_files
 hide_title: false
 hide_table_of_contents: false
 keywords:
-  - files
+  - stage_files
   - stage
   - snowflake
   - infrastructure-as-code
@@ -18,13 +18,13 @@ import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Creates, updates, deletes, gets or lists a <code>files</code> resource.
+Creates, updates, deletes, gets or lists a <code>stage_files</code> resource.
 
 ## Overview
 <table><tbody>
-<tr><td><b>Name</b></td><td><code>files</code></td></tr>
+<tr><td><b>Name</b></td><td><code>stage_files</code></td></tr>
 <tr><td><b>Type</b></td><td>Resource</td></tr>
-<tr><td><b>Id</b></td><td><CopyableCode code="snowflake.stage.files" /></td></tr>
+<tr><td><b>Id</b></td><td><CopyableCode code="snowflake.stage.stage_files" /></td></tr>
 </tbody></table>
 
 ## Fields
@@ -159,7 +159,7 @@ name,
 last_modified,
 md5,
 size
-FROM snowflake.stage.files
+FROM snowflake.stage.stage_files
 WHERE database_name = '{{ database_name }}' -- required
 AND schema_name = '{{ schema_name }}' -- required
 AND name = '{{ name }}' -- required

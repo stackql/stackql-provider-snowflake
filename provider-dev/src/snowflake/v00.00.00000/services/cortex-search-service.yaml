@@ -1301,7 +1301,6 @@ components:
         select:
         - $ref: '#/components/x-stackQL-resources/search_services/methods/list_cortex_search_services'
         - $ref: '#/components/x-stackQL-resources/search_services/methods/fetch_cortex_search_service'
-        - $ref: '#/components/x-stackQL-resources/search_services/methods/query_cortex_search_service'
         insert:
         - $ref: '#/components/x-stackQL-resources/search_services/methods/create_cortex_search_service'
         update: []
