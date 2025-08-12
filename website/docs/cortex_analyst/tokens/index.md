@@ -39,8 +39,6 @@ The following fields are returned by `SELECT` queries:
 >
 <TabItem value="get_scoped_token">
 
-OK
-
 <table>
 <thead>
     <tr>

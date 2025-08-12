@@ -81,10 +81,6 @@ paths:
           $ref: '#/components/responses/504GatewayTimeout'
 components:
   schemas:
-    Any:
-      description: Generic schema that accepts any value
-      nullable: true
-      additionalProperties: true
     GetModelsRequest:
       type: object
       properties:
@@ -132,9 +128,9 @@ components:
                   discriminator:
                     propertyName: type
                     mapping:
-                      text: '#/components/schemas/Any'
-                      tool_result: '#/components/schemas/Any'
-                      tool_use: '#/components/schemas/Any'
+                      text: '#/components/schemas/TextContent'
+                      tool_result: '#/components/schemas/ToolResults'
+                      tool_use: '#/components/schemas/ToolUse'
             required:
             - content
           minItems: 1
@@ -184,9 +180,9 @@ components:
           description: List of tools to be used during tool calling
           type: array
           items:
-            $ref: '#/components/schemas/Any'
+            $ref: '#/components/schemas/Tool'
         tool_choice:
-          $ref: '#/components/schemas/Any'
+          $ref: '#/components/schemas/ToolChoice'
         provisioned_throughput_id:
           type: string
           description: The provisioned throughput ID to be used with the request.
@@ -244,8 +240,8 @@ components:
                       discriminator:
                         propertyName: type
                         mapping:
-                          text: '#/components/schemas/Any'
-                          tool_use: '#/components/schemas/Any'
+                          text: '#/components/schemas/TextContent'
+                          tool_use: '#/components/schemas/ToolUse'
         usage:
           type: object
           title: Usage
@@ -286,8 +282,8 @@ components:
       discriminator:
         propertyName: type
         mapping:
-          text: '#/components/schemas/Any'
-          tool_use: '#/components/schemas/Any'
+          text: '#/components/schemas/StreamingTextContent'
+          tool_use: '#/components/schemas/StreamingToolUse'
     Identifier:
       type: string
       description: A Snowflake object identifier. If the identifier contains spaces
@@ -468,6 +464,120 @@ components:
       description: Downstream target lag
       allOf:
       - $ref: '#/components/schemas/TargetLag'
+    TextContent:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - text
+        text:
+          type: string
+      required:
+      - type
+      - text
+    ToolResults:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - tool_results
+        tool_results:
+          type: object
+          properties:
+            tool_use_id:
+              type: string
+            name:
+              type: string
+            content:
+              type: array
+              items:
+                type: object
+      required:
+      - type
+      - tool_results
+    ToolUse:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - tool_use
+        tool_use:
+          type: object
+          properties:
+            tool_use_id:
+              type: string
+            name:
+              type: string
+            input:
+              type: object
+      required:
+      - type
+      - tool_use
+    StreamingTextContent:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - text
+        text:
+          type: string
+      required:
+      - type
+      - text
+    StreamingToolUse:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - tool_use
+        tool_use:
+          type: object
+          properties:
+            tool_use_id:
+              type: string
+            name:
+              type: string
+            input:
+              type: object
+      required:
+      - type
+      - tool_use
+    Tool:
+      type: object
+      properties:
+        tool_spec:
+          type: object
+          properties:
+            type:
+              type: string
+            name:
+              type: string
+            description:
+              type: string
+            input_schema:
+              type: object
+      required:
+      - tool_spec
+    ToolChoice:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - auto
+          - required
+          - tool
+        name:
+          type: array
+          items:
+            type: string
+      required:
+      - type
   securitySchemes:
     KeyPair:
       type: http
@@ -917,7 +1027,7 @@ components:
       id: snowflake.cortex_inference.models
       name: models
       title: Models
-    inference:
+    completions:
       methods:
         cortex_llm_inference_complete:
           operation:
@@ -927,13 +1037,14 @@ components:
             openAPIDocKey: '200'
       sqlVerbs:
         select: []
-        insert: []
+        insert:
+        - $ref: '#/components/x-stackQL-resources/completions/methods/cortex_llm_inference_complete'
         update: []
         delete: []
         replace: []
-      id: snowflake.cortex_inference.inference
-      name: inference
-      title: Inference
+      id: snowflake.cortex_inference.completions
+      name: completions
+      title: Completions
 security:
 - KeyPair: []
 - ExternalOAuth: []

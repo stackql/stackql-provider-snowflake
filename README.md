@@ -14,6 +14,7 @@ export SNOWFLAKE_PAT=abcd...
 ### 1. Download REST API specs for Snowflake and unzip to the `provider-dev/source` directory
 
 ```bash
+rm -rf ./provider-dev/source/*
 wget https://github.com/snowflakedb/snowflake-rest-api-specs/archive/refs/heads/main.zip
 mkdir -p provider-dev/source
 unzip main.zip -d provider-dev/source
@@ -57,7 +58,6 @@ bash ./bin/openapi-to-stackql.sh convert \
 --skip common.yaml
 ```
 
-cortex-analyst.yaml,cortex-inference.yaml,cortex-search-service.yaml
 ### 5. Post process the specs
 Post process the specs to remove redundant reference paths:
 

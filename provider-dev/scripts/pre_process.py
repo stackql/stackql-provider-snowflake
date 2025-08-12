@@ -5,6 +5,150 @@ import yaml
 import sys
 import copy
 
+# declare custom inference schemas
+custom_schemas = {
+   "TextContent": {
+       "type": "object",
+       "properties": {
+           "type": {
+               "type": "string",
+               "enum": ["text"]
+           },
+           "text": {
+               "type": "string"
+           }
+       },
+       "required": ["type", "text"]
+   },
+   "ToolResults": {
+       "type": "object",
+       "properties": {
+           "type": {
+               "type": "string",
+               "enum": ["tool_results"]
+           },
+           "tool_results": {
+               "type": "object",
+               "properties": {
+                   "tool_use_id": {
+                       "type": "string"
+                   },
+                   "name": {
+                       "type": "string"
+                   },
+                   "content": {
+                       "type": "array",
+                       "items": {
+                           "type": "object"
+                       }
+                   }
+               }
+           }
+       },
+       "required": ["type", "tool_results"]
+   },
+   "ToolUse": {
+       "type": "object",
+       "properties": {
+           "type": {
+               "type": "string",
+               "enum": ["tool_use"]
+           },
+           "tool_use": {
+               "type": "object",
+               "properties": {
+                   "tool_use_id": {
+                       "type": "string"
+                   },
+                   "name": {
+                       "type": "string"
+                   },
+                   "input": {
+                       "type": "object"
+                   }
+               }
+           }
+       },
+       "required": ["type", "tool_use"]
+   },
+   "StreamingTextContent": {
+       "type": "object",
+       "properties": {
+           "type": {
+               "type": "string",
+               "enum": ["text"]
+           },
+           "text": {
+               "type": "string"
+           }
+       },
+       "required": ["type", "text"]
+   },
+   "StreamingToolUse": {
+       "type": "object",
+       "properties": {
+           "type": {
+               "type": "string",
+               "enum": ["tool_use"]
+           },
+           "tool_use": {
+               "type": "object",
+               "properties": {
+                   "tool_use_id": {
+                       "type": "string"
+                   },
+                   "name": {
+                       "type": "string"
+                   },
+                   "input": {
+                       "type": "object"
+                   }
+               }
+           }
+       },
+       "required": ["type", "tool_use"]
+   },
+   "Tool": {
+       "type": "object",
+       "properties": {
+           "tool_spec": {
+               "type": "object",
+               "properties": {
+                   "type": {
+                       "type": "string"
+                   },
+                   "name": {
+                       "type": "string"
+                   },
+                   "description": {
+                       "type": "string"
+                   },
+                   "input_schema": {
+                       "type": "object"
+                   }
+               }
+           }
+       },
+       "required": ["tool_spec"]
+   },
+   "ToolChoice": {
+       "type": "object",
+       "properties": {
+           "type": {
+               "type": "string",
+               "enum": ["auto", "required", "tool"]
+           },
+           "name": {
+               "type": "array",
+               "items": {
+                   "type": "string"
+               }
+           }
+       },
+       "required": ["type"]
+   }
+}
+
 def load_yaml(filepath):
     with open(filepath, "r", encoding="utf-8") as f:
         return yaml.safe_load(f)
@@ -84,7 +228,12 @@ def run(input_dir, keywords_to_rename=None):
         
         # Merge components as in the original script
         merge_components(spec, common_spec)
-        
+
+        if filename == "cortex-inference.yaml":
+            print(f"🔧 Adding schemas for: {filename}")
+            for schema_name, schema_def in custom_schemas.items():
+                spec["components"]["schemas"][schema_name] = schema_def
+             
         # Rename path parameters in URL paths
         if 'paths' in spec:
             updated_paths = {}

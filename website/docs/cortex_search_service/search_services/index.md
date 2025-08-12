@@ -35,8 +35,7 @@ The following fields are returned by `SELECT` queries:
     defaultValue="list_cortex_search_services"
     values={[
         { label: 'list_cortex_search_services', value: 'list_cortex_search_services' },
-        { label: 'fetch_cortex_search_service', value: 'fetch_cortex_search_service' },
-        { label: 'query_cortex_search_service', value: 'query_cortex_search_service' }
+        { label: 'fetch_cortex_search_service', value: 'fetch_cortex_search_service' }
     ]}
 >
 <TabItem value="list_cortex_search_services">
@@ -241,32 +240,6 @@ A Snowflake cortex search service object.
 </tbody>
 </table>
 </TabItem>
-<TabItem value="query_cortex_search_service">
-
-Search results.
-
-<table>
-<thead>
-    <tr>
-    <th>Name</th>
-    <th>Datatype</th>
-    <th>Description</th>
-    </tr>
-</thead>
-<tbody>
-<tr>
-    <td><CopyableCode code="request_id" /></td>
-    <td><code>string</code></td>
-    <td>ID of the request.</td>
-</tr>
-<tr>
-    <td><CopyableCode code="results" /></td>
-    <td><code>array</code></td>
-    <td>List of result rows.</td>
-</tr>
-</tbody>
-</table>
-</TabItem>
 </Tabs>
 
 ## Methods
@@ -299,13 +272,6 @@ The following methods are available for this resource:
     <td>Fetch a Cortex Search Service.</td>
 </tr>
 <tr>
-    <td><a href="#query_cortex_search_service"><CopyableCode code="query_cortex_search_service" /></a></td>
-    <td><CopyableCode code="select" /></td>
-    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-service_name"><code>service_name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
-    <td></td>
-    <td>Query a Cortex Search Service to get search results.</td>
-</tr>
-<tr>
     <td><a href="#create_cortex_search_service"><CopyableCode code="create_cortex_search_service" /></a></td>
     <td><CopyableCode code="insert" /></td>
     <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
@@ -318,6 +284,13 @@ The following methods are available for this resource:
     <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-name"><code>name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
     <td><a href="#parameter-ifExists"><code>ifExists</code></a></td>
     <td>Delete a cortex search service with the given name. If ifExists is used, the operation will succeed even if the object does not exist. Otherwise, there will be a failure if the drop is unsuccessful.</td>
+</tr>
+<tr>
+    <td><a href="#query_cortex_search_service"><CopyableCode code="query_cortex_search_service" /></a></td>
+    <td><CopyableCode code="exec" /></td>
+    <td><a href="#parameter-database_name"><code>database_name</code></a>, <a href="#parameter-schema_name"><code>schema_name</code></a>, <a href="#parameter-service_name"><code>service_name</code></a>, <a href="#parameter-endpoint"><code>endpoint</code></a></td>
+    <td></td>
+    <td>Query a Cortex Search Service to get search results.</td>
 </tr>
 <tr>
     <td><a href="#suspend_cortex_search_service"><CopyableCode code="suspend_cortex_search_service" /></a></td>
@@ -413,8 +386,7 @@ Parameters can be passed in the `WHERE` clause of a query. Check the [Methods](#
     defaultValue="list_cortex_search_services"
     values={[
         { label: 'list_cortex_search_services', value: 'list_cortex_search_services' },
-        { label: 'fetch_cortex_search_service', value: 'fetch_cortex_search_service' },
-        { label: 'query_cortex_search_service', value: 'query_cortex_search_service' }
+        { label: 'fetch_cortex_search_service', value: 'fetch_cortex_search_service' }
     ]}
 >
 <TabItem value="list_cortex_search_services">
@@ -476,21 +448,6 @@ FROM snowflake.cortex_search_service.search_services
 WHERE database_name = '{{ database_name }}' -- required
 AND schema_name = '{{ schema_name }}' -- required
 AND name = '{{ name }}' -- required
-AND endpoint = '{{ endpoint }}' -- required;
-```
-</TabItem>
-<TabItem value="query_cortex_search_service">
-
-Query a Cortex Search Service to get search results.
-
-```sql
-SELECT
-request_id,
-results
-FROM snowflake.cortex_search_service.search_services
-WHERE database_name = '{{ database_name }}' -- required
-AND schema_name = '{{ schema_name }}' -- required
-AND service_name = '{{ service_name }}' -- required
 AND endpoint = '{{ endpoint }}' -- required;
 ```
 </TabItem>
@@ -641,12 +598,35 @@ AND ifExists = '{{ ifExists }}';
 ## Lifecycle Methods
 
 <Tabs
-    defaultValue="suspend_cortex_search_service"
+    defaultValue="query_cortex_search_service"
     values={[
+        { label: 'query_cortex_search_service', value: 'query_cortex_search_service' },
         { label: 'suspend_cortex_search_service', value: 'suspend_cortex_search_service' },
         { label: 'resume_cortex_search_service', value: 'resume_cortex_search_service' }
     ]}
 >
+<TabItem value="query_cortex_search_service">
+
+Query a Cortex Search Service to get search results.
+
+```sql
+EXEC snowflake.cortex_search_service.search_services.query_cortex_search_service 
+@database_name='{{ database_name }}' --required, 
+@schema_name='{{ schema_name }}' --required, 
+@service_name='{{ service_name }}' --required, 
+@endpoint='{{ endpoint }}' --required 
+@@json=
+'{
+"query": "{{ query }}", 
+"multi_index_query": "{{ multi_index_query }}", 
+"columns": "{{ columns }}", 
+"filter": "{{ filter }}", 
+"limit": {{ limit }}, 
+"scoring_config": "{{ scoring_config }}", 
+"experimental": "{{ experimental }}"
+}';
+```
+</TabItem>
 <TabItem value="suspend_cortex_search_service">
 
 Suspends one or both of the indexing or serving targets of a cortex search service.

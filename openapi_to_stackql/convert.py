@@ -70,6 +70,12 @@ def run(input_dir: str, output_dir: str, config_path: str, provider_id: str, ser
             os.remove(file_path)
     print(f"🧹 Cleared all files in {services_path}")
 
+    # delete provider.yaml file
+    provider_manifest_file = os.path.join(output_dir, version, "provider.yaml")
+    if os.path.isfile(provider_manifest_file):
+        os.remove(provider_manifest_file)
+    print(f"🧹 Deleted {provider_manifest_file}")
+
     manifest = load_manifest(config_path)
 
     provider_services = {}

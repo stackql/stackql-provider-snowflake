@@ -10,8 +10,8 @@ keywords:
   - cloud inventory
 description: Query, deploy and manage Snowflake resources using SQL
 custom_edit_url: null
-image: /img/stackql-snowflake-provider-featured-image.png
-id: provider-intro
+image: /img/providers/snowflake/stackql-snowflake-provider-featured-image.png
+id: 'provider-intro'
 ---
 
 import CopyableCode from '@site/src/components/CopyableCode/CopyableCode';

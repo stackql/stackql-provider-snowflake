@@ -25,8 +25,8 @@ total resources: __3__
 ## Resources
 <div class="row">
 <div class="providerDocColumn">
-<a href="/stage/files/">files</a><br />
-<a href="/stage/presigned_url/">presigned_url</a>
+<a href="/stage/presigned_url/">presigned_url</a><br />
+<a href="/stage/stage_files/">stage_files</a>
 </div>
 <div class="providerDocColumn">
 <a href="/stage/stages/">stages</a>
