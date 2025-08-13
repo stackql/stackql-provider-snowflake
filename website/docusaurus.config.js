@@ -10,6 +10,83 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const providerName = "snowflake";
 const providerTitle = "Snowflake";
 
+const providerDropDownListItems = [
+  {
+    label: 'AWS',
+    to: '/providers/aws',
+  },
+  {
+    label: 'Azure',
+    to: '/providers/azure',
+  },
+  {
+    label: 'Google',
+    to: '/providers/google',
+  },
+  {
+    label: 'Databricks',
+    to: '/providers/databricks',
+  },
+  {
+    label: 'Snowflake',
+    to: '/providers/snowflake',
+  },
+  {
+    label: 'Confluent',
+    to: '/providers/confluent',
+  },
+  {
+    label: 'Okta',
+    to: '/providers/okta',
+  },
+  {
+    label: 'GitHub',
+    to: '/providers/github',
+  },
+  {
+    label: 'OpenAI',
+    to: '/providers/openai',
+  },
+  {
+    label: '... More',
+    to: '/providers',
+  },
+];
+
+const footerStackQLItems = [
+  {
+    label: 'Documentation',
+    to: '/stackqldocs',
+  },
+  {
+    label: 'Install',
+    to: '/install',
+  },
+  {
+    label: 'Contact us',
+    to: '/contact-us',
+  },
+];
+
+const footerMoreItems = [
+  {
+    label: 'Providers',
+    to: '/providers',
+  },
+  {
+    label: 'stackql-deploy',
+    to: '/stackql-deploy',
+  },            
+  {
+    label: 'Blog',
+    to: '/blog',
+  },
+  {
+    label: 'Tutorials',
+    to: '/tutorials',
+  },            
+];
+
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 /** @type {import('@docusaurus/types').Config} */
@@ -92,44 +169,7 @@ const config = {
             type: 'dropdown',
             label: 'Providers',
             position: 'left',
-            items: [
-              {
-                label: 'AWS',
-                to: '/providers/aws',
-              },
-              {
-                label: 'Azure',
-                to: '/providers/azure',
-              },
-              {
-                label: 'Google',
-                to: '/providers/google',
-              },
-              {
-                label: 'GitHub',
-                to: '/providers/github',
-              },
-              {
-                label: 'Kubernetes',
-                to: '/providers/k8s',
-              },
-              {
-                label: 'Okta',
-                to: '/providers/okta',
-              },
-              {
-                label: 'DigitalOcean',
-                to: '/providers/digitalocean',
-              },
-              {
-                label: 'Linode',
-                to: '/providers/linode',
-              },
-              {
-                label: '... More',
-                to: '/providers',
-              },
-            ]                      
+            items: providerDropDownListItems,
           },
           {
             type: 'dropdown',
@@ -169,41 +209,11 @@ const config = {
         links: [
           {
             title: 'StackQL',
-            items: [
-              {
-                label: 'Documentation',
-                to: '/stackqldocs',
-              },
-              {
-                label: 'Install',
-                to: '/install',
-              },
-              {
-                label: 'Contact us',
-                href: '/contact-us',
-              },
-            ],
+            items: footerStackQLItems,
           },
           {
             title: 'More',
-            items: [
-              {
-                label: 'Providers',
-                to: '/providers',
-              },
-              {
-                label: 'StackQL Deploy',
-                to: '/stackql-deploy',
-              },
-              {
-                label: 'Blog',
-                to: '/blog',
-              },
-              {
-                label: 'Tutorials',
-                to: '/tutorials',
-              },
-            ],
+            items: footerMoreItems,
           },
         ],
         copyright: `© ${new Date().getFullYear()} StackQL Studios`,
