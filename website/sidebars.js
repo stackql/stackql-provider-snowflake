@@ -24,7 +24,7 @@ const providerTitle = config.title.replace(/^StackQL /, '').replace(/ Provider$/
     {
       type: 'link',
       label: 'All Providers',
-      href: '/registry',
+      href: '/providers',
     },
     {
       type: 'category',

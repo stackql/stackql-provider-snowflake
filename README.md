@@ -2,7 +2,7 @@
 
 ### Prerequisities
 
-a. Download `stackql` locally (see [downloads](https://stackql.io/downloads)).  
+a. Download `stackql` locally (see [downloads](https://stackql.io/install)).  
 b. Create a least priveleged role for your `stackql` service account.
 c. Create a [Snowflake PAT](https://docs.snowflake.com/developer-guide/snowflake-rest-api/authentication#using-a-programmatic-access-token-pat) for the role created in (b).  
 d. Export the following environment variable: 

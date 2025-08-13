@@ -72,15 +72,15 @@ const config = {
       navbar: {
         logo: {
           alt: 'StackQL Registry',
-          href: 'https://stackql.io/',
+          href: '/providers',
           src: 'img/stackql-registry-logo.svg',
           srcDark: 'img/stackql-registry-logo-white.svg',
         },
         items: [
           {
-            to: '/stackqldocs',
+            to: '/install',
             position: 'left',
-            label: 'StackQL Docs',
+            label: 'Install',
           },
           {
             to: '/deploy',
@@ -88,53 +88,67 @@ const config = {
             label: 'stackql-deploy',
           },
           {
-            to: '/registry',
+            to: '/providers',
             type: 'dropdown',
             label: 'StackQL Providers',
             position: 'left',
             items: [
               {
                 label: 'AWS',
-                to: '/registry/aws',
+                to: '/providers/aws',
               },
               {
                 label: 'Azure',
-                to: '/registry/azure',
+                to: '/providers/azure',
               },
               {
                 label: 'Google',
-                to: '/registry/google',
+                to: '/providers/google',
               },
               {
                 label: 'GitHub',
-                to: '/registry/github',
+                to: '/providers/github',
               },
               {
                 label: 'Kubernetes',
-                to: '/registry/k8s',
+                to: '/providers/k8s',
               },
               {
                 label: 'Okta',
-                to: '/registry/okta',
+                to: '/providers/okta',
               },
               {
                 label: 'DigitalOcean',
-                to: '/registry/digitalocean',
+                to: '/providers/digitalocean',
               },
               {
                 label: 'Linode',
-                to: '/registry/linode',
+                to: '/providers/linode',
               },
               {
                 label: '... More',
-                to: '/registry',
-              },                                                                                                
+                to: '/providers',
+              },
             ]                      
           },
           {
-            to: '/downloads',
+            type: 'dropdown',
+            label: 'More',
             position: 'left',
-            label: 'Downloads',
+            items: [
+              {
+                to: '/stackqldocs',
+                label: 'StackQL Docs',
+              },
+              {
+                to: '/blog',
+                label: 'Blog',
+              },
+              {
+                to: '/tutorials',
+                label: 'Tutorials',
+              },
+            ],
           },
           {
             href: 'https://github.com/stackql/stackql',
@@ -148,7 +162,7 @@ const config = {
         style: 'dark',
         logo: {
           alt: 'StackQL',
-          href: 'https://stackql.io/',
+          href: 'https://stackql.io/providers',
           src: 'img/stackql-registry-logo.svg',
           srcDark: 'img/stackql-registry-logo-white.svg',
         },
@@ -157,16 +171,12 @@ const config = {
             title: 'StackQL',
             items: [
               {
-                label: 'Home',
-                to: '/home',
+                label: 'Documentation',
+                to: '/stackqldocs',
               },
               {
-                label: 'Features',
-                to: '/features',
-              },
-              {
-                label: 'Downloads',
-                to: '/downloads',
+                label: 'Install',
+                to: '/install',
               },
               {
                 label: 'Contact us',
@@ -178,16 +188,20 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'StackQL Docs',
-                to: '/stackqldocs',
+                label: 'Providers',
+                to: '/providers',
               },
               {
-                label: 'Providers',
-                to: '/registry',
+                label: 'StackQL Deploy',
+                to: '/deploy',
               },
               {
                 label: 'Blog',
                 to: '/blog',
+              },
+              {
+                label: 'Tutorials',
+                to: '/tutorials',
               },
             ],
           },
