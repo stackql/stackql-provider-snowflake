@@ -83,14 +83,14 @@ const config = {
             label: 'Install',
           },
           {
-            to: '/deploy',
+            to: '/stackql-deploy',
             position: 'left',
             label: 'stackql-deploy',
           },
           {
             to: '/providers',
             type: 'dropdown',
-            label: 'StackQL Providers',
+            label: 'Providers',
             position: 'left',
             items: [
               {
@@ -162,7 +162,7 @@ const config = {
         style: 'dark',
         logo: {
           alt: 'StackQL',
-          href: 'https://stackql.io/providers',
+          href: '/providers',
           src: 'img/stackql-registry-logo.svg',
           srcDark: 'img/stackql-registry-logo-white.svg',
         },
@@ -193,7 +193,7 @@ const config = {
               },
               {
                 label: 'StackQL Deploy',
-                to: '/deploy',
+                to: '/stackql-deploy',
               },
               {
                 label: 'Blog',
